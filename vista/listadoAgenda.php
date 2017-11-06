@@ -12,6 +12,7 @@
             <td><strong>Apellidos</strong></td>
             <td><strong>Telefono</strong></td>
             <td><strong>Email</strong></td>
+            <td><strong>Grupo</strong></td>
         </tr>
         <?php
             for($i=0;$i<count($pd);$i++)
@@ -21,6 +22,8 @@
                         <td><?php echo $pd[$i]["Nombre"]; ?></td>
                         <td><?php echo $pd[$i]["Apellidos"]; ?></td>
                         <td><?php echo $pd[$i]["Telefono"]; ?></td>
+                        <td><?php echo $pd[$i]["Correo"]; ?></td>
+                        <td><?php echo $pd[$i]["Grupo"]; ?></td>
                     </tr>
                 <?php
             }

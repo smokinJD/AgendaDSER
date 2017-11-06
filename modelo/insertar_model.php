@@ -18,8 +18,7 @@ class contactos{
     public function get_contactos()
     {
         self::set_names();
-        
-        $sql="SELECT c.Nombre, c.Apellidos, c.Telefono, GROUP_CONCAT(distinct e.Correo, '\n') Correo, GROUP_CONCAT(DISTINCT g.Nombre, '\n') as Grupo FROM contactos c, email e, grupos g, gruposcontactos gc WHERE c.id=e.idContacto AND c.id=gc.idContacto AND gc.idGrupo=g.id GROUP BY c.id";
+        $sql="SELECT c.Nombre, c.Apellidos, c.Telefono, e.Correo, g.Nombre as grupo FROM contactos c, email e, grupos g, gruposcontactos gc WHERE c.id=e.idContacto AND c.id=gc.idContacto AND gc.idGrupo=g.id";
         foreach ($this->db->query($sql) as $res)
         {
             $this->contactos[]=$res;
