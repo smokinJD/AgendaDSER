@@ -10,15 +10,8 @@ class contactos{
         $this->db = conectar::conexion();
     }
  
-    private function set_names()
-    {
-        return $this->db->query("SET NAMES 'utf8'");
-    }
- 
     public function get_contactos()
-    {
-        self::set_names();
-        
+    {   
         $sql="SELECT c.Nombre, c.Apellidos, c.Telefono, GROUP_CONCAT(distinct e.Correo, '\n') Correo, GROUP_CONCAT(DISTINCT g.Nombre, '\n') as Grupo FROM contactos c, email e, grupos g, gruposcontactos gc WHERE c.id=e.idContacto AND c.id=gc.idContacto AND gc.idGrupo=g.id GROUP BY c.id";
         foreach ($this->db->query($sql) as $res)
         {
