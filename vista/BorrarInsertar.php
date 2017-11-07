@@ -19,11 +19,26 @@
                     <tr>
                         <td><?php echo $pd[$i]["Nombre"]; ?></td>
                         <td><?php echo $pd[$i]["Contraseña"]; ?></td>
-                        <td><?php echo $pd[$i]["Telefono"]; ?></td>
+                        <?php if ($pd[$i]['Admin'] == TRUE){ ?>
+                        <td>Administrador</td>
+                        <?php }else {?>
+                        <td>Viewer</td>
+                        <?php
+                        }
+                        ?>
+                        <td class="boton"><input type="submit" name="borrar" value="borrar"></td>
                     </tr>
                 <?php
             }
         ?>
+                    <form action="controladorBorraMod.php" method="post">
+                    <tr>
+                        <td><input type="text" name="nombreUser" value=""></td>
+                        <td><input type="text" name="password" value=""></td>
+                        <td><input type="text" name="admin" value=""></td>
+                        <td class="boton"><input type="submit" name="insertar" value="insertar"></td>
+                    </tr>
+                    </form>
     </table>
     
     <h1>Contactos</h1>
@@ -34,13 +49,13 @@
             <td><strong>Admin</strong></td>
         </tr>
         <?php
-            for($i=0;$i<count($pd);$i++)
+            for($i=0;$i<count($contactos);$i++)
             {
                 ?>
                     <tr>
-                        <td><?php echo $pd[$i]["Nombre"]; ?></td>
-                        <td><?php echo $pd[$i]["Apellidos"]; ?></td>
-                        <td><?php echo $pd[$i]["Telefono"]; ?></td>
+                        <td><?php echo $contactos[$i]["Nombre"]; ?></td>
+                        <td><?php echo $contactos[$i]["Apellidos"]; ?></td>
+                        <td><?php echo $contactos[$i]["Telefono"]; ?></td>
                     </tr>
                 <?php
             }

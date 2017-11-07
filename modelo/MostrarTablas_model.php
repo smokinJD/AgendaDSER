@@ -12,14 +12,8 @@ class Usuarios{
         $this->db = conectar::conexion();
     }
  
-    private function set_names()
-    {
-        return $this->db->query("SET NAMES 'utf8'");
-    }
- 
     public function get_usuarios()
     {
-        self::set_names();
         
         $sql="SELECT * FROM usuarios";
         foreach ($this->db->query($sql) as $res)
@@ -30,6 +24,13 @@ class Usuarios{
         $this->db=null;
     }
     
+    public function insertarUsuarios($nombre, $pass, $admin){
+        $sql="INSERT INTO usuarios (`Nombre`,`Contraseña`,`Admin`) VALUES ('$nombre','$pass','$admin')";
+            $this->db->query($sql);
+            //mysqli_free_result($result);
+    }
+
+
     public function get_contactos()
     {   
         $sql="SELECT * FROM contactos";
