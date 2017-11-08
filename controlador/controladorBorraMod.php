@@ -4,10 +4,10 @@
     $Usuarios = new usuarios();
     $pd = $Usuarios->get_usuarios();
     $contactos = $Usuarios->get_contactos();
-    //isertar Usuario
+    //insertar Usuario
     if ($_POST){
     $nombre= filter_input(INPUT_POST, 'nombreUser');
-    $pass= filter_input(INPUT_POST, 'pass');
+    $pass= filter_input(INPUT_POST, 'password');
     $admin= filter_input(INPUT_POST, 'admin');
     
     if (empty($nombre) || empty($pass) || empty($admin)){
