@@ -34,7 +34,7 @@
                     <form action="controladorBorraMod.php" method="post">
                     <tr>
                         <td><input type="text" name="nombreUser" value=""></td>
-                        <td><input type="text" name="password" value=""></td>
+                        <td><input type="password" name="password" value=""></td>
                         <td><input type="text" name="admin" value=""></td>
                         <td class="boton"><input type="submit" name="insertar" value="insertar"></td>
                     </tr>
