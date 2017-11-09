@@ -18,13 +18,12 @@
             } else{
                 if ($admin == "Administrador"){
                     $admin=1;
-                } else {
+                } else if ($admin == "Viewer"){
                     $admin=0;
                 }
                 $insertUser = $Usuarios->insertarUsuarios($nombre,$pass, $admin);
-
-                }
                 echo ('<meta http-equiv="refresh" content="0"/>');
+                }      
         }
         //borrar usuario
         
