@@ -1,6 +1,6 @@
 <?php
     class conectar{
-        public function conexion() {
+        public static function conexion() {
             try{
                 $conexion = new PDO('mysql:host=localhost; dbname=agenda', 'root', '');
                 $conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

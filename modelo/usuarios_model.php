@@ -1,9 +1,7 @@
 <?php
-include 'conectar.php';
 class Usuarios{
     private $db;
     private $usuarios;
-    private $contactos;
 
 
     public function __construct()
@@ -28,18 +26,6 @@ class Usuarios{
         $sql="INSERT INTO usuarios (`Nombre`,`Contraseña`,`Admin`) VALUES ('$nombre','$pass','$admin')";
             $this->db->query($sql);
             //mysqli_free_result($result);
-    }
-
-
-    public function get_contactos()
-    {   
-        $sql="SELECT * FROM contactos";
-        foreach ($this->db->query($sql) as $res)
-        {
-            $this->contactos[]=$res;
-        }
-        return $this->contactos;
-        $this->db=null;
     }
 }
 ?>

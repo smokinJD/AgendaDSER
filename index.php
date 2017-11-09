@@ -16,7 +16,7 @@
     <br/>
     <section>
         <a href="controlador/controladorContactos.php">Listado Agenda</a>
-        <a href="controlador/controladorBorraMod.php">Gestion</a>
+        <a href="controlador/controladorGestion.php">Gestion</a>
     </section>
 </body>
 </html>

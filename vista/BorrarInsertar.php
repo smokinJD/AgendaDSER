@@ -6,7 +6,7 @@
 </head>
 <body>
     <h1>Usuarios</h1>
-    <table border="1">
+    <table border="0">
         <tr>
             <td><strong>Nombre</strong></td>
             <td><strong>Contraseña</strong></td>
@@ -49,13 +49,13 @@
             <td><strong>Admin</strong></td>
         </tr>
         <?php
-            for($i=0;$i<count($contactos);$i++)
+            for($i=0;$i<count($contac);$i++)
             {
                 ?>
                     <tr>
-                        <td><?php echo $contactos[$i]["Nombre"]; ?></td>
-                        <td><?php echo $contactos[$i]["Apellidos"]; ?></td>
-                        <td><?php echo $contactos[$i]["Telefono"]; ?></td>
+                        <td><?php echo $contac[$i]["Nombre"]; ?></td>
+                        <td><?php echo $contac[$i]["Apellidos"]; ?></td>
+                        <td><?php echo $contac[$i]["Telefono"]; ?></td>
                     </tr>
                 <?php
             }
