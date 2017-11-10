@@ -22,8 +22,8 @@
                         <td><?php echo $pd[$i]["Nombre"]; ?></td>
                         <td><?php echo $pd[$i]["Apellidos"]; ?></td>
                         <td><?php echo $pd[$i]["Telefono"]; ?></td>
-                        <td><?php echo $pd[$i]["Correo"]; ?></td>
-                        <td><?php echo $pd[$i]["Grupo"]; ?></td>
+                        <td><?php echo $pd[$i]["emails"]; ?></td>
+                        <td><?php echo $pd[$i]["grupos"]; ?></td>
                     </tr>
                 <?php
             }

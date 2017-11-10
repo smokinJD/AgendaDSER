@@ -22,7 +22,7 @@ class contactos{
     
     public function get_listado()
     {   
-        $sql="SELECT c.Nombre, c.Apellidos, c.Telefono, GROUP_CONCAT(distinct e.Correo, '\n') Correo, GROUP_CONCAT(DISTINCT g.Nombre, '\n') as Grupo FROM contactos c, email e, grupos g, gruposcontactos gc WHERE c.id=e.idContacto AND c.id=gc.idContacto AND gc.idGrupo=g.id GROUP BY c.id";
+        $sql="SELECT contactos.id, contactos.Nombre, contactos.Apellidos, contactos.Telefono, GROUP_CONCAT(DISTINCT correo) as emails, GROUP_CONCAT(DISTINCT grupos.Nombre) as grupos FROM contactos LEFT JOIN email ON email.idContacto=contactos.id LEFT JOIN gruposcontactos ON gruposcontactos.idContacto=contactos.id LEFT JOIN grupos ON gruposcontactos.idGrupo=grupos.id GROUP BY id";
         
         foreach ($this->db->query($sql) as $res)
         {
