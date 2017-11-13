@@ -32,7 +32,7 @@ class contactos{
         $this->db=null;
     }
     
-    public function insertar($nombre, $apellido, $telefono, $correo, ){
+    public function insertar($nombre, $apellido, $telefono, $correo, $grupos){
         
     }
 }
