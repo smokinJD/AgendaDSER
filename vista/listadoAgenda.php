@@ -24,20 +24,20 @@
                         <td><?php echo $pd[$i]["Telefono"]; ?></td>
                         <td><?php echo $pd[$i]["emails"]; ?></td>
                         <td><?php echo $pd[$i]["grupos"]; ?></td>
-                        <td class="boton"><input type="submit" name="borrar" value="borrar"> <input type="submit" name="modificar" value="modificar"></td>
+                        <td class="boton"><input type="button" name="borrar" value="borrar"> <input type="button" name="modificar" value="modificar"></td>
                     </tr>
                 <?php
             }
         ?>
                     <form action="controladorContactos.php" method="post">
                     <tr>
-                        <td><input type="text" name="nombre" value=""></td>
-                        <td><input type="text" name="apellido" value=""></td>
-                        <td><input type="number" name="telefono" maxlength="9" value=""></td>
-                        <td><input type="email" name="email"></td>
+                        <td><input type="text" name="nombre" value="" required></td>
+                        <td><input type="text" name="apellido" value="" required></td>
+                        <td><input type="number" name="telefono" maxlength="9" value="" required></td>
+                        <td><input type="email" name="email" required></td>
                         <td>
-                            <input type="checkbox" name="grupos" value="Amigos"> Amigos<br>
-                            <input type="checkbox" name="grupos" value="Familia"> Familia 
+                            <input type="checkbox" name="grupos[]" value="Amigos"> Amigos<br>
+                            <input type="checkbox" name="grupos[]" value="Familia"> Familia 
                         </td>
                         <td class="boton"><input type="submit" name="insertar" value="insertar"></td>
                     </tr>

@@ -31,6 +31,10 @@ class contactos{
         return $this->contactos;
         $this->db=null;
     }
+    
+    public function insertar($nombre, $apellido, $telefono, $correo, ){
+        
+    }
 }
 ?>
 
