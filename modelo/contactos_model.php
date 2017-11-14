@@ -33,7 +33,8 @@ class contactos{
     }
     
     public function insertar($nombre, $apellido, $telefono, $correo, $grupos){
-        
+        $sql=" CALL `spInsertUpdate`($nombre, $apellido, $telefono, $correo, @p4, @p5, @p6, @p7, @p8);";
+        $this->db->query($sql);
     }
 }
 ?>
