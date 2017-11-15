@@ -32,8 +32,8 @@ class contactos{
         $this->db=null;
     }
     
-    public function insertar($nombre, $apellido, $telefono, $correo, $grupos){
-        $sql=" CALL `spInsertUpdate`($nombre, $apellido, $telefono, $correo, @p4, @p5, @p6, @p7, @p8);";
+    public function insertar($nombre, $apellido, $telefono, $correo1, $correo2, $grupo1, $grupo2, $grupo3){
+        $sql=" CALL `spInsertUpdate`('$nombre', '$apellido', '$telefono', '$correo1', '$correo2', '$grupo1', '$grupo2', '$grupo3', '');";
         $this->db->query($sql);
     }
 }

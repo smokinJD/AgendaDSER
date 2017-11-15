@@ -36,8 +36,8 @@
                         <td><input type="number" name="telefono" maxlength="9" value="" required></td>
                         <td><input type="email" name="email" required></td>
                         <td>
-                            <input type="checkbox" name="grupos[]" value="Amigos"> Amigos<br>
-                            <input type="checkbox" name="grupos[]" value="Familia"> Familia 
+                            <input type="checkbox" name="grupos[]" value="1"> Familia<br>
+                            <input type="checkbox" name="grupos[]" value="2"> Amigos
                         </td>
                         <td class="boton"><input type="submit" name="insertar" value="insertar"></td>
                     </tr>
