@@ -34,6 +34,9 @@
                 }
             }
         }
+        
+    //Hacer el delete
+    
     //lamada a la Vista
     require_once("../vista/listadoAgenda.php");
 ?>

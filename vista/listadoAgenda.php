@@ -24,7 +24,7 @@
                         <td><?php echo $pd[$i]["Telefono"]; ?></td>
                         <td><?php echo $pd[$i]["emails"]; ?></td>
                         <td><?php echo $pd[$i]["grupos"]; ?></td>
-                        <td class="boton"><input type="button" name="borrar" value="borrar"> <input type="button" name="modificar" value="modificar"></td>
+                        <td><a name="idBorrar" href="listadoAgenda.php?borrar=<?php echo $pd[$i]["id"]; ?>"><input type="button" name="borrar" value="borrar"></a> <input type="button" name="modificar" value="modificar"></td>
                     </tr>
                 <?php
             }
