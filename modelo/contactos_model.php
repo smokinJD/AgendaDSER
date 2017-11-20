@@ -36,6 +36,11 @@ class contactos{
         $sql=" CALL `spInsertUpdate`('$nombre', '$apellido', '$telefono', '$correo1', '$correo2', '$grupo1', '$grupo2', '$grupo3', '');";
         $this->db->query($sql);
     }
+    
+    public function borrar($idBorrado){
+        $sql="DELETE FROM contactos WHERE id='$idBorrado'";
+        $this->db->query($sql);
+    }
 }
 ?>
 
