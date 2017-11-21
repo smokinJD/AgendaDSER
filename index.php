@@ -6,16 +6,15 @@
 </head>
 <body>
     <h1>Agenda</h1>
-    <form action="logeatu.php" method="POST">
+    <form action="controlador/controladorLogin.php" method="POST">
         <p>Nombre:</p>
-        <input type="text" name="txt_izena" required/>
+        <input type="text" name="username" required/>
         <p>Contraseña:</p>
-        <input type="password" name="txt_pass" required/>
-        <p><input type="submit" value="Enviar" /></p>
+        <input type="password" name="password" required/>
+        <p><input type="submit" value="Iniciar Sesion" /></p>
     </form>
     <br/>
     <section>
-        <a href="controlador/controladorContactos.php">Listado Agenda</a>
         <a href="controlador/controladorGestion.php">Gestion</a>
     </section>
 </body>

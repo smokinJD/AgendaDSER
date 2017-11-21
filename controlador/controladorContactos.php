@@ -4,20 +4,21 @@
     require_once("../modelo/contactos_model.php");
     $Agenda = new contactos();
     //mostrar Listado
-    $pd = $Agenda->get_listado();
+    $opcion = "";
+    $pd = $Agenda->get_contactos($opcion,"");
     
     // Recoger datos del form post
     if($_POST){
     $id = filter_input(INPUT_POST, 'id');
     //hacer insertar
-    if (filter_input(INPUT_POST,'insertar')){
+    if (isset($_POST['insertar'])){
         $nombre= filter_input(INPUT_POST, 'nombre');
         $apellido= filter_input(INPUT_POST, 'apellido');
         $telefono= filter_input(INPUT_POST, 'telefono');
         $email1= filter_input(INPUT_POST, 'email'); 
         
         if (empty($nombre) || empty($apellido) || empty($telefono) || empty($email1)){
-                echo "<p>Los datos estan vacios</p>";
+                echo '<script>alert ("Los datos estan vacios");</script>';
         } else{
                 $grupos= $_POST['grupos'];
                 $count = count($grupos);
@@ -27,7 +28,7 @@
                         $grupo1 = $grupos[0];
                      }
                      if($i==1){
-                    $grupo2 = $grupos[1];
+                    	$grupo2 = $grupos[1];
                      }
                     //echo '<p> holaa'.$grupos[$i]. '</p>';
                 }
@@ -39,16 +40,23 @@
     }
         
     //Hacer el delete
-    if (filter_input(INPUT_POST,'borrar')){
-        echo 'hola'. $id;
+    if (isset($_POST['borrar'])){
         $borrar = $Agenda->borrar($id);
         echo '<script>alert ("Contacto borrado correctamente");</script>';
         echo ('<meta http-equiv="refresh" content="0"/>');
     }
     
     //Hacer el Update
-    if (filter_input(INPUT_POST,'modificar')){
-        
+    //recoger datos del contacto escogido para el update
+    if (isset($_POST['modificar'])){
+    	for($i=0;$i<count($pd);$i++){
+    	if ($pd[$i]["id"]==$id){
+    		$mostrarNombreMod =  $pd[$i]['Nombre'];
+    		$mostrarApellidoMod =  $pd[$i]['Apellidos'];
+    		$mostrarTelefonoMod =  $pd[$i]['Telefono'];
+    		$mostrarEmailMod =  $pd[$i]['emails'];
+    	}
+    	}
     }
     }
     //lamada a la Vista

@@ -9,9 +9,9 @@ class contactos{
         $this->db = conectar::conexion();
     }
  
-    public function get_contactos()
+    public function get_contactos($opcion, $idModificar)
     {   
-        $sql="SELECT * FROM contactos";
+        $sql=" CALL `mostrar`('$opcion', '$idModificar');";
         foreach ($this->db->query($sql) as $res)
         {
             $this->contactos[]=$res;
