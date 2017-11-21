@@ -18,7 +18,7 @@
                 ?>
                     <tr>
                         <td><?php echo $pd[$i]["Nombre"]; ?></td>
-                        <td><?php echo $pd[$i]["Contraseña"]; ?></td>
+                        <td><?php echo $pd[$i]["Contrasena"]; ?></td>
                         <?php if ($pd[$i]['Admin'] == TRUE){ ?>
                         <td>Administrador</td>
                         <?php }else {?>
@@ -39,27 +39,6 @@
                         <td class="boton"><input type="submit" name="insertar" value="insertar"></td>
                     </tr>
                     </form>
-    </table>
-    
-    <h1>Contactos</h1>
-    <table border="1">
-        <tr>
-            <td><strong>Nombre</strong></td>
-            <td><strong>Apellidos</strong></td>
-            <td><strong>Admin</strong></td>
-        </tr>
-        <?php
-            for($i=0;$i<count($contac);$i++)
-            {
-                ?>
-                    <tr>
-                        <td><?php echo $contac[$i]["Nombre"]; ?></td>
-                        <td><?php echo $contac[$i]["Apellidos"]; ?></td>
-                        <td><?php echo $contac[$i]["Telefono"]; ?></td>
-                    </tr>
-                <?php
-            }
-        ?>
     </table>
 </body>
 </html>

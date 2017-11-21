@@ -9,9 +9,9 @@ class contactos{
         $this->db = conectar::conexion();
     }
  
-    public function get_contactos($opcion, $idModificar)
+    public function get_contactos()
     {   
-        $sql=" CALL `mostrar`('$opcion', '$idModificar');";
+        $sql=" CALL `mostrar`();";
         foreach ($this->db->query($sql) as $res)
         {
             $this->contactos[]=$res;
@@ -32,8 +32,8 @@ class contactos{
         $this->db=null;
     }
     
-    public function insertar($nombre, $apellido, $telefono, $correo1, $correo2, $grupo1, $grupo2, $grupo3){
-        $sql=" CALL `spInsertUpdate`('$nombre', '$apellido', '$telefono', '$correo1', '$correo2', '$grupo1', '$grupo2', '$grupo3', '');";
+    public function insertar($nombre, $apellido, $telefono, $correo1, $correo2, $grupo1, $grupo2, $grupo3, $poblacion){
+        $sql=" CALL `spInsertUpdate`('$nombre', '$apellido', '$telefono', '$correo1', '$correo2', '$grupo1', '$grupo2', '$grupo3', '', '$poblacion');";
         $this->db->query($sql);
     }
     

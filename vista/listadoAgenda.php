@@ -18,6 +18,7 @@ session_start();
             <td><strong>Telefono</strong></td>
             <td><strong>Email</strong></td>
             <td><strong>Grupo</strong></td>
+            <td><strong>Poblacion</strong></td>
         </tr>
         <?php
             for($i=0;$i<count($pd);$i++)
@@ -29,6 +30,7 @@ session_start();
                         <td><?php echo $pd[$i]["Telefono"]; ?></td>
                         <td><?php echo $pd[$i]["emails"]; ?></td>
                         <td><?php echo $pd[$i]["grupos"]; ?></td>
+                        <td><?php echo $pd[$i]["Poblacion"]; ?></td>
                         <?php 
                         if($_SESSION['rol'] == 'Administrador'){
                         ?>
@@ -57,17 +59,35 @@ session_start();
                         <td><input type="number" name="telefono" maxlength="9" value="<?php echo $mostrarTelefonoMod;?>"></td>
                         <td><input type="email" name="email" value="<?php echo $mostrarEmailMod;?>"></td>
                         <td>
+                            <?php 
+                            if (($mostrarGrupoFamilia==1) || ($mostrarGrupoFamilia==3)){
+                            ?>
+                            <input type="checkbox" name="grupos[]" value="1" checked=""> Familia<br>
+                            <?php 
+                            }else{
+                            ?>
                             <input type="checkbox" name="grupos[]" value="1"> Familia<br>
+                            <?php 
+                            }
+                            if ($mostrarGrupoFamilia==2 || $mostrarGrupoFamilia==3){
+                            ?>
+                            <input type="checkbox" name="grupos[]" value="2" checked=""> Amigos
+                            <?php 
+                            }else{
+                            ?>
                             <input type="checkbox" name="grupos[]" value="2"> Amigos
+                            <?php 
+                            }
+                            ?>
                         </td>
+                        <td><input type="text" name="poblacion" value="<?php echo $mostrarPoblacionMod;?>"></td>
                         <td>
-                        
-                        	<input type="submit" name="editar" value="editar">
+                            <input type="submit" name="editar" value="editar">
                         </td>
                         <?php
-   						 }else{ 
-   						?>
-   						<td><input type="text" name="nombre" value="" ></td>
+                            }else{ 
+   			?>
+   			<td><input type="text" name="nombre" value="" ></td>
                         <td><input type="text" name="apellido" value="" ></td>
                         <td><input type="number" name="telefono" maxlength="9" value="" ></td>
                         <td><input type="email" name="email" ></td>
@@ -75,7 +95,8 @@ session_start();
                             <input type="checkbox" name="grupos[]" value="1"> Familia<br>
                             <input type="checkbox" name="grupos[]" value="2"> Amigos
                         </td>
-   						<td>
+                        <td><input type="text" name="poblacion" value=""></td>
+   			<td>
                         <input type="submit" name="insertar" value="insertar">
                         </td>
                         <?php
@@ -90,6 +111,7 @@ session_start();
     	<?php 
 			 if($_SESSION['rol'] == 'Administrador'){
 			 	echo "<p><a href='../controlador/controladorGestion.php'>Gestion Usuarios</a></p>";
+                                echo "<p><a href='../controlador/controladorGrupos.php'>Listado Grupos</a></p>";
 			 }
         ?>
 </body>
