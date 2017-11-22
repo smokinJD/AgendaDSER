@@ -12,9 +12,9 @@ class login_model{
 		$sql="SELECT * FROM usuarios WHERE Nombre='$usuario' AND Contrasena='$contrasena'";
 		foreach ($this->link->query($sql) as $res)
 		{
-			$this->contactos[]=$res;
+			$this->usuario[]=$res;
 		}
-		return $this->contactos;
+		return $this->usuario;
 		$this->link=null;
 	}
 }
@@ -34,7 +34,7 @@ class login_model{
 //   if ((isset($_POST['username'])) && (isset($_POST['password']))){
 //         $username = filter_input($POST, 'username');
 //         $password = filter_input($POST, 'password');
-//         $sql="select idUsuario, Nombre, Contraseña, Admin rol from usuarios where (username = '$username') AND (u.rol = r.idRol)";
+//         $sql="select idUsuario, Nombre, Contraseï¿½a, Admin rol from usuarios where (username = '$username') AND (u.rol = r.idRol)";
 //         $result = mysqli_query($this->db, $sql);
 //         if (mysqli_num_rows($result) > 0) {
 //           $row = $result->fetch_array(MYSQLI_ASSOC);
