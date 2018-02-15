@@ -38,12 +38,16 @@ class contactos{
     }
     
     public function insertarConSentencia($nombre, $apellido, $telefono, $poblacion){
-    	$sql="INSERT INTO contactos(Nombre,Apellidos,Telefono,Poblacion) VALUES(?,?,?,?)";// ? el simbolo de interrogacion es el parametro
+    	$sql="INSERT INTO contactos(Nombre,Apellidos,Telefono,Poblacion) VALUES(:nombre,:apellido,:telefono,:poblacion)";// ? el simbolo de interrogacion es el parametro
     	$sqlPrep = $this->db->prepare($sql);
     	//$sqlPrep->bind_param("s","s","i","s",$nombre,$apellido,$telefono,$poblacion);  //este sirve para cuando hago la conexion con mysqli
-    	$sqlPrep->bindParam("s","s","i","s", $nombre,$apellido,$telefono,$poblacion); // las "s" y "i" significan el tipo que es cada parametro, por ejemplo "s" es string
+    	//$sqlPrep->bindParam("s","s","i","s", $nombre,$apellido,$telefono,$poblacion); // las "s" y "i" significan el tipo que es cada parametro, por ejemplo "s" es string
+    	$sqlPrep->bindParam(':nombre', $nombre, PDO::PARAM_STR, 20);
+    	$sqlPrep->bindParam(':apellido', $apellido, PDO::PARAM_STR, 20);
+    	$sqlPrep->bindParam(':telefono', $telefono, PDO::PARAM_INT);
+    	$sqlPrep->bindParam(':poblacion', $poblacion, PDO::PARAM_STR, 40);
     	$sqlPrep->execute();
-    	$this->db->close();
+    	//$this->db->close();
     	
     	
     	//esto sirve para obtener resultados por ejemplo para recoger una select

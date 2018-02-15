@@ -12,4 +12,4 @@ foreach ($filas as $value) {
 	$insertar = $Agenda->insertarConSentencia($nombre, $apellido, $telefono, $poblacion);
 }
 
-echo ('<meta http-equiv="refresh" content="0"/>');
+header('location: ../controlador/controladorContactos.php');
