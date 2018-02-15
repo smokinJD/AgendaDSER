@@ -5,8 +5,28 @@
     $Agenda = new contactos();
     //mostrar Listado
     $opcion = "";
-    $pd = $Agenda->get_contactos();
+    //$pd = $Agenda->get_contactos();
     
+     ///Cookies Busqueda
+        if ((!empty($_POST["orden"])) && (empty($_POST["borrarOrden"]))) {
+            $ordenRecogido = ($_POST["orden"]);
+            Setcookie("orden", $ordenRecogido);
+            echo "<meta http-equiv='refresh' content='0'>";
+        }
+        if (isset($_POST["borrarOrden"])) {
+            setcookie('orden');
+            echo "<meta http-equiv='refresh' content='0'>";
+        }
+        
+        if (isset ($_COOKIE["orden"]) ) {
+        $orden = "ORDER BY ".$_COOKIE["orden"];
+        echo $orden;
+        $pd = $Agenda->get_contactos($orden);
+      } else {
+        $orden = "";
+        $pd = $Agenda->get_contactos($orden);
+      }
+      
     // Recoger datos del form post
     if($_POST){
     $idContactos = filter_input(INPUT_POST, 'id');
@@ -102,6 +122,7 @@
                 }
             }
     }
+   
     }
     //lamada a la Vista
     require_once("../vista/listadoAgenda.php");

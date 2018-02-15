@@ -9,9 +9,9 @@ class contactos{
         $this->db = conectar::conexion();
     }
  
-    public function get_contactos()
+    public function get_contactos($orden)
     {   
-        $sql=" CALL `mostrar`();";
+        $sql="SELECT contactos.*, GROUP_CONCAT(DISTINCT correo) as emails, GROUP_CONCAT(DISTINCT grupos.Nombre) as grupos FROM contactos LEFT JOIN email ON email.idContacto=contactos.id LEFT JOIN gruposcontactos ON gruposcontactos.idContacto=contactos.id LEFT JOIN grupos ON gruposcontactos.idGrupo=grupos.id GROUP BY contactos.id $orden;";
         foreach ($this->db->query($sql) as $res)
         {
             $this->contactos[]=$res;

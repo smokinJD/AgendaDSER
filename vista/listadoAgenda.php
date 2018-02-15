@@ -10,7 +10,32 @@ session_start();
 ?>
 <p>Hola, <?php echo $_SESSION['username']; ?> <a href='../controlador/logout.php'>salir</a></p>
     <h1>Agenda</h1>
+    <fieldset>
+      <legend>Ordenar por:</legend>
+
+
+      <form method="post" action="controladorContactos.php">
+        <label class="radio-inline">
+          <input type="radio" name="orden"
+          <?php if (isset($_COOKIE["orden"]) && $_COOKIE["orden"]=="Nombre") echo "checked";?>
+          value="Nombre">Nombre
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="orden"
+          <?php if (isset($_COOKIE["orden"]) && $_COOKIE["orden"]=="Apellidos") echo "checked";?>
+          value="Apellidos">Apellido
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="orden"
+          <?php if (isset($_COOKIE["orden"]) && $_COOKIE["orden"]=="grupo") echo "checked";?>
+          value="grupo">Grupo
+        </label>
+        <button type="submit" class="btn btn-default">Buscar</button>
+        <button type="submit" class="btn btn-default" name="borrarOrden">Borrar Orden</button>
+      </form>
+    </fieldset>
     
+    <br>
     <table border="1">
         <tr>
             <td><strong>Nombre</strong></td>
