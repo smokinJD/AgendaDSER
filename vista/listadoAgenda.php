@@ -136,7 +136,8 @@ session_start();
     	<?php 
 			 if($_SESSION['rol'] == 'Administrador'){
 			 	echo "<p><a href='../controlador/controladorGestion.php'>Gestion Usuarios</a></p>";
-                                echo "<p><a href='../controlador/controladorGrupos.php'>Listado Grupos</a></p>";
+                echo "<p><a href='../controlador/controladorGrupos.php'>Listado Grupos</a></p>";
+                echo "<p><a href='../controlador/controladorInsertarFichero.php'>Insertar por fichero</a></p>";
 			 }
         ?>
 </body>

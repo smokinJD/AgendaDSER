@@ -37,6 +37,24 @@ class contactos{
         $this->db->query($sql);
     }
     
+    public function insertarConSentencia($nombre, $apellido, $telefono, $poblacion){
+    	$sql="INSERT INTO contactos(Nombre,Apellidos,Telefono,Poblacion) VALUES(?,?,?,?)";// ? el simbolo de interrogacion es el parametro
+    	$sqlPrep = $this->db->prepare($sql);
+    	//$sqlPrep->bind_param("s","s","i","s",$nombre,$apellido,$telefono,$poblacion);  //este sirve para cuando hago la conexion con mysqli
+    	$sqlPrep->bindParam("s","s","i","s", $nombre,$apellido,$telefono,$poblacion); // las "s" y "i" significan el tipo que es cada parametro, por ejemplo "s" es string
+    	$sqlPrep->execute();
+    	$this->db->close();
+    	
+    	
+    	//esto sirve para obtener resultados por ejemplo para recoger una select
+//     	$result=$sqlPrep->get_result();
+//     	if($result->num_rows>0){
+//     		while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
+//     			$this->contactos[]=$res;
+//     		}
+//     	}
+    }
+    
     public function borrar($idBorrado){
         $sql="DELETE FROM contactos WHERE id='$idBorrado'";
         $this->db->query($sql);
